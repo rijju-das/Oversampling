@@ -38,5 +38,4 @@ def data_preprocessing(df_path, k, df_columns):
 
   d_test=pd.concat([pd.DataFrame(X_test),pd.DataFrame(y_test)], axis=1)
   d_test.columns = [*d_test.columns[:-1], 'Class']
-  
   return d_train, d_test
