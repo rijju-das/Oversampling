@@ -27,6 +27,7 @@ import sklearn.metrics as metrics
 
 
 def ModelTrain(d_train, d_test): 
+    d_train = d_train.fillna(d_train.mean())
     d_train=np.array(d_train)
     X_train = d_train[:,0:-1]
     y_train = d_train[:,-1]
