@@ -51,7 +51,7 @@ def ModelTrain(d_train, d_test):
         temp=[]
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test) 
-        temp.append([accuracy_score(y_test, y_pred),precision_score(y_test, y_pred, average='weighted'),recall_score(y_test, y_pred, average='weighted'),f1_score(y_test, y_pred, average='weighted')])
+        # temp.append([accuracy_score(y_test, y_pred),precision_score(y_test, y_pred, average='weighted'),recall_score(y_test, y_pred, average='weighted'),f1_score(y_test, y_pred, average='weighted')])
         # Evaluate the model
         # kfold = KFold(n_splits = 5, shuffle=True)
         #kfold = cross_validation.KFold(n=num_instances, n_folds=10, random_state=seed)
@@ -60,6 +60,12 @@ def ModelTrain(d_train, d_test):
         # names.append(name)
         # msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
         # print(msg)
-        results[name]=temp
-    new=pd.DataFrame(results)
+        # results[name]=temp
+        results['accuracy']=accuracy_score(y_test, y_pred)
+        results['precision']=precision_score(y_test, y_pred, average='weighted')
+        results['recall']=recall_score(y_test, y_pred, average='weighted')
+        results['f-score']=f1_score(y_test, y_pred, average='weighted')
+    # print(results)
+    new=pd.DataFrame(results, index=[0])
+    # print(new)
     return new
