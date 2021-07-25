@@ -64,13 +64,13 @@ def ModelTrain(d_train, d_test):
         temp.append(precision_score(y_test, y_pred, average='weighted'))
         temp.append(recall_score(y_test, y_pred, average='weighted'))
         temp.append(f1_score(y_test, y_pred, average='weighted'))
-        print(temp)
+        # print(temp)
         results[name]=temp
         # results['accuracy']=accuracy_score(y_test, y_pred)
         # results['precision']=precision_score(y_test, y_pred, average='weighted')
         # results['recall']=recall_score(y_test, y_pred, average='weighted')
         # results['f-score']=f1_score(y_test, y_pred, average='weighted')
-    print(results)
+    # print(results)
     new=pd.DataFrame(results)
     # print(new)
     return new
