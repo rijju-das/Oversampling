@@ -64,9 +64,9 @@ class SMOTE(object):
             # Exclude the sample itself.
             nn = self.neigh.kneighbors(self.X[j].reshape(1, -1),
                                        return_distance=False)[:, 1:]
-            print(nn)
+            # print(nn)
             nn_index = np.random.choice(nn[0])
-            print(nn_index)
+            # print(nn_index)
 
             dif = self.X[nn_index] - self.X[j]
             gap = np.random.random()
